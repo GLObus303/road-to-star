@@ -20,7 +20,7 @@ const mockEvents = [
 
 const renderedEvents = mockEvents.map((mockEvent) => (
   <li key={mockEvent.id} className={style.event}>
-    <div>{mockEvent.sport}</div>
+    <div style={{ fontWeight: "bold" }}>{mockEvent.sport}</div>
     <div>From: {mockEvent.name}</div>
   </li>
 ));
