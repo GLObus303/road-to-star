@@ -16,6 +16,21 @@ const mockEvents = [
     name: "Honza",
     sport: "Tennis",
   },
+  {
+    id: 4,
+    name: "Pepa",
+    sport: "Rugby",
+  },
+  {
+    id: 5,
+    name: "Fanda",
+    sport: "Traktor",
+  },
+  {
+    id: 6,
+    name: "Jarmila",
+    sport: "Golf",
+  },
 ];
 
 const renderedEvents = mockEvents.map((mockEvent) => (
