@@ -18,10 +18,13 @@ const mockEvents = [
   },
 ];
 
+const renderedEvents = mockEvents.map((mockEvent) => (
+  <li key={mockEvent.id} className={style.event}>
+    <div>{mockEvent.sport}</div>
+    <div>From: {mockEvent.name}</div>
+  </li>
+));
+
 export const Events = () => {
-  return (
-    <div className={style.container}>
-      <div>Events</div>
-    </div>
-  );
+  return <ul className={style.list}>{renderedEvents}</ul>;
 };

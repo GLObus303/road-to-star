@@ -1,7 +1,15 @@
 import { Events } from "../components/Events";
+import { Header } from "../components/Header";
+import { Title } from "../components/Title";
 
 const Home = () => {
-  return <Events />;
+  return (
+    <div>
+      <Header />
+      <Title />
+      <Events />
+    </div>
+  );
 };
 
 export default Home;
