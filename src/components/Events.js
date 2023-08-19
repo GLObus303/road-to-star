@@ -1,4 +1,4 @@
-import style from "./Events.module.scss";
+import style from "../styles/Events.module.scss";
 
 const mockEvents = [
   {
@@ -33,13 +33,13 @@ const mockEvents = [
   },
 ];
 
-const renderedEvents = mockEvents.map((mockEvent) => (
-  <li key={mockEvent.id} className={style.event}>
-    <div style={{ fontWeight: "bold" }}>{mockEvent.sport}</div>
-    <div>From: {mockEvent.name}</div>
-  </li>
-));
-
 export const Events = () => {
+  const renderedEvents = mockEvents.map((mockEvent) => (
+    <li key={mockEvent.id} className={style.event}>
+      <div className={style.sport}>{mockEvent.sport}</div>
+      <div>From: {mockEvent.name}</div>
+    </li>
+  ));
+
   return <ul className={style.list}>{renderedEvents}</ul>;
 };

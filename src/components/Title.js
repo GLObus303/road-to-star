@@ -1,5 +1,5 @@
-import style from "./Title.module.scss";
+import style from "../styles/Title.module.scss";
 
 export const Title = () => {
-  return <div className={style.titleStyle}>Everything is possible</div>;
+  return <div className={style.title}>Everything is possible</div>;
 };

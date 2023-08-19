@@ -1,5 +1,4 @@
 .event {
-  align-items: left;
   height: 200px;
   width: 343px;
   border: 2px solid #333;
@@ -24,3 +23,7 @@ $grid-breakpoints: (
   xl: 1200px,
   xxl: 1400px,
 );
+
+.sport {
+  font-weight: bold;
+}
