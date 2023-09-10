@@ -1,4 +1,4 @@
-import style from "../styles/Events.module.scss";
+import style from "./Events.module.scss";
 
 const mockEvents = [
   {
