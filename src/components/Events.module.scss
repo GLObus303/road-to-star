@@ -1,8 +1,22 @@
-.container {
+@import "src/components/breakpoint";
+
+.event {
+  height: 200px;
+  width: 343px;
+  border: 2px solid #333;
+  padding-top: 5px;
+  padding-left: 10px;
+  border-radius: 10px;
+}
+
+.list {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
+  flex-wrap: wrap;
   width: 100%;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.sport {
+  font-weight: bold;
 }
