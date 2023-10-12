@@ -1,43 +1,32 @@
 import style from "./Events.module.scss";
+import React, { useEffect } from "react";
 
-const mockEvents = [
-  {
-    id: 1,
-    name: "Vendy",
-    sport: "Basketball",
-  },
-  {
-    id: 2,
-    name: "Lukas",
-    sport: "Football",
-  },
-  {
-    id: 3,
-    name: "Honza",
-    sport: "Tennis",
-  },
-  {
-    id: 4,
-    name: "Pepa",
-    sport: "Rugby",
-  },
-  {
-    id: 5,
-    name: "Fanda",
-    sport: "Traktor",
-  },
-  {
-    id: 6,
-    name: "Jarmila",
-    sport: "Golf",
-  },
-];
+let events: [string] = [];
 
 export const Events = () => {
-  const renderedEvents = mockEvents.map((mockEvent) => (
-    <li key={mockEvent.id} className={style.event}>
-      <div className={style.sport}>{mockEvent.sport}</div>
-      <div>From: {mockEvent.name}</div>
+  useEffect(() => {
+    const apiUrl = "https://sportujspolu-api.onrender.com/api/v1/events";
+
+    fetch(apiUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        events = data;
+        console.log(events);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }, []);
+
+  const renderedEvents = events.map((event) => (
+    <li key={event.id} className={style.event}>
+      <div className={style.sport}>{event.sport}</div>
+      <div>From: {event.name}</div>
     </li>
   ));
 
