@@ -1,9 +1,9 @@
 import style from "./Events.module.scss";
 import React, { useEffect } from "react";
 
-let events: [string] = [];
-
 export const Events = () => {
+  const [events, setEvents] = useState<Event[]>([])
+
   useEffect(() => {
     const apiUrl = "https://sportujspolu-api.onrender.com/api/v1/events";
 
@@ -15,8 +15,7 @@ export const Events = () => {
         return response.json();
       })
       .then((data) => {
-        events = data;
-        console.log(events);
+        setEvents(data);
       })
       .catch((error) => {
         console.error("Error:", error);
