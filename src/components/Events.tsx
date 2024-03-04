@@ -1,8 +1,10 @@
+import { useEffect, useState } from "react";
+import type { Event } from "../model/Event";
 import style from "./Events.module.scss";
-import React, { useEffect } from "react";
+import React from "react";
 
-export const Events = () => {
-  const [events, setEvents] = useState<Event[]>([])
+export const Events: React.FC = () => {
+  const [events, setEvents] = useState<Event[]>([]);
 
   useEffect(() => {
     const apiUrl = "https://sportujspolu-api.onrender.com/api/v1/events";
@@ -14,7 +16,7 @@ export const Events = () => {
         }
         return response.json();
       })
-      .then((data) => {
+      .then((data: Event[]) => {
         setEvents(data);
       })
       .catch((error) => {
@@ -22,7 +24,7 @@ export const Events = () => {
       });
   }, []);
 
-  const renderedEvents = events.map((event) => (
+  const renderedEvents = events.map((event: Event) => (
     <li key={event.id} className={style.event}>
       <div className={style.sport}>{event.sport}</div>
       <div>From: {event.name}</div>
