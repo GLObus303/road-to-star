@@ -1,38 +1,30 @@
 @import "src/components/breakpoint";
-
-.event {
-  height: 200px;
-  width: 343px;
-  border: 2px solid #333;
-  padding-top: 5px;
-  padding-left: 10px;
-  border-radius: 10px;
-  margin-left: 5%;
-  margin-right: 5%;
-}
+@import "src/styles/color";
 
 .list {
   display: flex;
-  flex-wrap: wrap;
   width: 100%;
+  max-width: 100%;
+  flex-wrap: wrap;
   gap: 30px;
   justify-content: space-between;
-  max-width: 100%;
 }
 
 .sport {
   font-weight: bold;
 }
 
-@media only screen and (max-width: $screen-md-min) {
-  .event {
-    margin-left: auto;
-    margin-right: auto;
-    height: 200px;
-    width: 343px;
-    border: 2px solid #333;
-    padding-top: 5px;
-    padding-left: 10px;
-    border-radius: 10px;
+.event {
+  width: 343px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 5px;
+  padding-left: 10px;
+  border: 2px solid $black;
+  border-radius: 10px;
+  @media (min-width: $md) {
+    margin-left: 10px;
+    margin-right: 10px;
   }
 }
