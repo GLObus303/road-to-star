@@ -1,9 +1,11 @@
+@import "src/styles/color";
+
 .header {
-  display: flex;
   align-items: center;
-  padding: 20px;
-  height: 75px;
+  display: flex;
   width: 100%;
-  background-image: linear-gradient(to right, #33b3a6, #40e0d0);
+  height: 75px;
+  padding: 20px;
   font-size: 30px;
+  background-image: linear-gradient(to right, $dark-teal, $light-teal);
 }
