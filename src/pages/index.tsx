@@ -1,15 +1,15 @@
 import { Events } from "../components/Events";
 import { Header } from "../components/Header";
+import { PageLayout } from "../components/PageLayout";
 import { Title } from "../components/Title";
-import style from "./index.module.scss";
 
 const Home = () => {
   return (
-    <div className={style.wrapper}>
+    <PageLayout>
       <Header />
       <Title />
       <Events />
-    </div>
+    </PageLayout>
   );
 };
 
