@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { useEffect, useState } from "react";
 import type { Event } from "../model/Event";
@@ -27,10 +25,6 @@ export const Events: React.FC = () => {
   const handleRedirect = (event: Event) => {
     router.push({
       pathname: `/event/${event.id}`,
-      query: {
-        name: event.name,
-        sport: event.sport,
-      },
     });
   };
 
