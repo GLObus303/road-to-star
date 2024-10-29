@@ -1,4 +1,4 @@
-@import "src/components/breakpoint";
+@import "src/styles/breakpoint";
 @import "src/styles/color";
 
 .list {
@@ -8,6 +8,7 @@
   flex-wrap: wrap;
   gap: 30px;
   justify-content: space-between;
+  list-style-type: none;
 }
 
 .sport {
@@ -17,12 +18,11 @@
 .event {
   width: 343px;
   height: 200px;
-  margin-left: auto;
-  margin-right: auto;
   padding-top: 5px;
   padding-left: 10px;
   border: 2px solid $black;
   border-radius: 10px;
+  cursor: pointer;
 
   @media (min-width: $md) {
     margin-left: 10px;
