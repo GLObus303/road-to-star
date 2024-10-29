@@ -7,7 +7,7 @@ import type { Event } from "../../model/Event";
 const EventDetail: React.FC = () => {
   const router = useRouter();
   const { id } = router.query;
-  const [event, setEvent] = useState<Event>({} as Event);
+  const [event, setEvent] = useState<Event>();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -28,8 +28,8 @@ const EventDetail: React.FC = () => {
 
   return (
     <div>
-      <p>Name: {event.name}</p>
-      <p>Sport: {event.sport}</p>
+      <p>Name: {event?.name}</p>
+      <p>Sport: {event?.sport}</p>
       <p>Id: {id}</p>
       <button onClick={() => router.push("/")}>Back</button>
     </div>

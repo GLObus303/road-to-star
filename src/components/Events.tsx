@@ -39,7 +39,6 @@ export const Events: React.FC = () => {
           key={event.id}
           className={style.event}
           onClick={() => handleRedirect(event)}
-          style={{ cursor: "pointer" }}
         >
           <div className={style.sport}>{event.sport}</div>
           <div>From: {event.name}</div>
