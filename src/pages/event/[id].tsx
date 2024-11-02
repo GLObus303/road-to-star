@@ -3,6 +3,7 @@ import { Loader } from "../../components/Loader";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import type { Event } from "../../model/Event";
+import Link from "next/link";
 
 const EventDetail: React.FC = () => {
   const router = useRouter();
@@ -31,7 +32,9 @@ const EventDetail: React.FC = () => {
       <p>Name: {event?.name}</p>
       <p>Sport: {event?.sport}</p>
       <p>Id: {id}</p>
-      <button onClick={() => router.push("/")}>Back</button>
+      <Link href="/">
+        <button style={{ cursor: "pointer" }}>Back</button>
+      </Link>
     </div>
   );
 };

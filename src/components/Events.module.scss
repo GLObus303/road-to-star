@@ -12,20 +12,33 @@
 }
 
 .sport {
+  margin-top: 5px;
+  margin-left: 10px;
   font-weight: bold;
+  text-decoration: none;
+  color: black;
 }
 
 .event {
   width: 343px;
   height: 200px;
-  padding-top: 5px;
-  padding-left: 10px;
   border: 2px solid $black;
   border-radius: 10px;
-  cursor: pointer;
 
   @media (min-width: $md) {
     margin-left: 10px;
     margin-right: 10px;
   }
+}
+
+.link {
+  height: 100%;
+  display: block;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+.from {
+  margin-left: 10px;
 }
