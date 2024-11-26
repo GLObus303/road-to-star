@@ -2,13 +2,13 @@ import React from "react";
 import { Loader } from "../../components/Loader";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import type { Event } from "../../model/Event";
-import Link from "next/link";
+import type { EventType } from "../../model/Event";
+import { EventDetail } from "../../components/EventDetail";
 
-const EventDetail: React.FC = () => {
+const EventDetailPage: React.FC = () => {
   const router = useRouter();
   const { id } = router.query;
-  const [event, setEvent] = useState<Event>();
+  const [event, setEvent] = useState<EventType>();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -28,15 +28,8 @@ const EventDetail: React.FC = () => {
   }
 
   return (
-    <div>
-      <p>Name: {event?.name}</p>
-      <p>Sport: {event?.sport}</p>
-      <p>Id: {id}</p>
-      <Link href="/">
-        <button style={{ cursor: "pointer" }}>Back</button>
-      </Link>
-    </div>
+    <EventDetail name={event?.name} sport={event?.sport} id={id}></EventDetail>
   );
 };
 
-export default EventDetail;
+export default EventDetailPage;

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import style from "./Signup.module.scss";
-import Link from "next/link";
+import Button from "./Button";
+import LinkButton from "./LinkButton";
+import TextInput from "./TextInput";
 
 const Signup: React.FC = () => {
   const [firstName, setFirstName] = useState("");
@@ -17,55 +19,37 @@ const Signup: React.FC = () => {
   };
 
   return (
-    <div className={style.login}>
+    <div className={style.signup}>
       <h2>Sign up</h2>
       <form onSubmit={handleSignup}>
-        <div className={style.inputWrapper}>
-          <label htmlFor="username">First name:</label>
-          <input
-            type="text"
-            id="firstName"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-            className={style.input}
-          />
-        </div>
-        <div className={style.inputWrapper}>
-          <label htmlFor="username">Last name:</label>
-          <input
-            type="text"
-            id="lastName"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-            className={style.input}
-          />
-        </div>
-        <div className={style.inputWrapper}>
-          <label htmlFor="username">E-mail:</label>
-          <input
-            type="text"
-            id="username"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className={style.input}
-          />
-        </div>
-        <div className={style.inputWrapper}>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className={style.input}
-          />
-        </div>
-        <button type="submit" className={style.submitButton}>
-          Sign up
-        </button>
-        <Link href="/">
-          <button className={style.submitButton}>Back</button>
-        </Link>
+        <TextInput
+          label="First name"
+          id="firstName"
+          value={firstName}
+          setValue={setFirstName}
+        ></TextInput>
+        <TextInput
+          label="Last name"
+          id="lastName"
+          value={lastName}
+          setValue={setLastName}
+        ></TextInput>
+        <TextInput
+          label="E-mail"
+          id="email"
+          value={email}
+          setValue={setEmail}
+        ></TextInput>
+        <TextInput
+          label="Password"
+          id="password"
+          value={password}
+          setValue={setPassword}
+        ></TextInput>
+        <Button type="submit">SignUp</Button>
+        <LinkButton href="/" className={style.linkButtonSignup}>
+          Back
+        </LinkButton>
       </form>
     </div>
   );

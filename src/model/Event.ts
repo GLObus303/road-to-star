@@ -1,4 +1,4 @@
-export type Event = {
+export type EventType = {
   id: number;
   name: string;
   sport: string;
@@ -6,7 +6,7 @@ export type Event = {
   location: string;
   price: number;
   description: string;
-  level: Level;
+  level: LevelType;
 };
 
-export type Level = "Any" | "Intermediate" | "Beginner";
+export type LevelType = "Any" | "Intermediate" | "Beginner";

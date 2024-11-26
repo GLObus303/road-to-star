@@ -33,7 +33,8 @@
 
 .link {
   height: 100%;
-  display: block;
+  display: flex;
+  flex-direction: column;
   text-decoration: none;
   color: black;
   cursor: pointer;
