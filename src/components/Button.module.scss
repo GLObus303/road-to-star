@@ -1,6 +1,8 @@
+@import "src/styles/color";
+
 .button {
   width: 100%;
-  background-color: #007bff;
+  background-color: $azure;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -11,10 +13,10 @@
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: $london-rain;
   }
 
   &:active {
-    background-color: #004494;
+    background-color: $fright-night;
   }
 }
