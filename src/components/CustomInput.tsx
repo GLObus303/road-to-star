@@ -1,14 +1,16 @@
 import React from "react";
-import style from "./TextInput.module.scss";
+import style from "./CustomInput.module.scss";
 
-type TextInputProps = {
+type CustomInputProps = {
+  type: string;
   label: string;
   id: string;
   value: string;
   setValue: (value: string) => void;
 };
 
-export const TextInput: React.FC<TextInputProps> = ({
+export const CustomInput: React.FC<CustomInputProps> = ({
+  type,
   label,
   id,
   value,
@@ -18,7 +20,7 @@ export const TextInput: React.FC<TextInputProps> = ({
     <div className={style.inputWrapper}>
       <label htmlFor={id}>{label}</label>
       <input
-        type="text"
+        type={type}
         id={id}
         value={value}
         onChange={(e) => setValue(e.target.value)}
@@ -28,4 +30,4 @@ export const TextInput: React.FC<TextInputProps> = ({
   );
 };
 
-export default TextInput;
+export default CustomInput;
