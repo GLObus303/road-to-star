@@ -1,8 +1,10 @@
 import React from "react";
-import { Loader } from "../../components/Loader";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import type { EventType } from "../../model/Event";
+
+import { Loader } from "../../components/Loader";
+import { fetchEventDetail } from "../../api/eventDetail";
+import type { EventType } from "../../model/EventType";
 import { EventDetail } from "../../components/EventDetail";
 
 const EventDetailPage: React.FC = () => {
@@ -12,24 +14,24 @@ const EventDetailPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchEvent = async () => {
-      const response = await fetch(
-        `https://sportujspolu-api.onrender.com/api/v1/events/${id}`
-      );
-      setEvent(await response.json());
+    const loadEvent = async () => {
+      if (!id) {
+        return;
+      }
+
+      const fetchedEvent = await fetchEventDetail(id);
+      setEvent(fetchedEvent);
       setIsLoading(false);
     };
 
-    fetchEvent();
+    loadEvent();
   }, [id]);
 
   if (isLoading) {
     return <Loader />;
   }
 
-  return (
-    <EventDetail name={event?.name} sport={event?.sport} id={id}></EventDetail>
-  );
+  return <EventDetail name={event?.name} sport={event?.sport} id={id} />;
 };
 
 export default EventDetailPage;

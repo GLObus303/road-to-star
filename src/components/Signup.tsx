@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import style from "./Signup.module.scss";
+import { useRouter } from "next/router";
+
 import Button from "./Button";
 import LinkButton from "./LinkButton";
-import TextInput from "./TextInput";
+import CustomInput from "./CustomInput";
+import { registerUser } from "../api/signUp";
+import style from "./Signup.module.scss";
 
 const Signup: React.FC = () => {
   const [firstName, setFirstName] = useState("");
@@ -10,42 +13,51 @@ const Signup: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSignup = (e: React.FormEvent) => {
+  const router = useRouter();
+
+  const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("First name:", firstName);
-    console.log("Last name:", lastName);
-    console.log("E-mail:", email);
-    console.log("Password:", password);
+
+    const response = await registerUser({
+      email,
+      name: `${firstName} ${lastName}`,
+      password,
+    });
+
+    if (response.ok) {
+      router.push("/");
+    }
   };
 
   return (
     <div className={style.signup}>
       <h2>Sign up</h2>
       <form onSubmit={handleSignup}>
-        <TextInput
+        <CustomInput
           label="First name"
           id="firstName"
           value={firstName}
           setValue={setFirstName}
-        ></TextInput>
-        <TextInput
+        />
+        <CustomInput
           label="Last name"
           id="lastName"
           value={lastName}
           setValue={setLastName}
-        ></TextInput>
-        <TextInput
+        />
+        <CustomInput
           label="E-mail"
           id="email"
           value={email}
           setValue={setEmail}
-        ></TextInput>
-        <TextInput
+        />
+        <CustomInput
+          type="password"
           label="Password"
           id="password"
           value={password}
           setValue={setPassword}
-        ></TextInput>
+        />
         <Button type="submit">SignUp</Button>
         <LinkButton href="/" className={style.linkButtonSignup}>
           Back

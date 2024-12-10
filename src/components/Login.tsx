@@ -1,8 +1,10 @@
+/* eslint-disable no-console */
 import React, { useState } from "react";
-import style from "./Login.module.scss";
+
 import Button from "./Button";
 import LinkButton from "./LinkButton";
-import TextInput from "./TextInput";
+import CustomInput from "./CustomInput";
+import style from "./Login.module.scss";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -18,18 +20,19 @@ const Login: React.FC = () => {
     <div className={style.login}>
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
-        <TextInput
+        <CustomInput
           label="E-mail"
           id="email"
           value={email}
           setValue={setEmail}
-        ></TextInput>
-        <TextInput
+        />
+        <CustomInput
+          type="password"
           label="Password"
           id="password"
           value={password}
           setValue={setPassword}
-        ></TextInput>
+        />
         <Button type="submit">Login</Button>
         <LinkButton href="/" className={style.linkButtonLogin}>
           Back

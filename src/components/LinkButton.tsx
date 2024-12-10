@@ -1,9 +1,10 @@
 import React from "react";
 import type { ReactNode } from "react";
 import Link from "next/link";
+import clsx from "clsx";
+
 import buttonStyle from "./Button.module.scss";
 import style from "./LinkButton.module.scss";
-import clsx from "clsx";
 
 type LinkButtonProps = {
   href: string;
@@ -15,8 +16,7 @@ const LinkButton: React.FC<LinkButtonProps> = ({
   href,
   children,
   className,
-}) => {
-  return (
+}) => (
     <Link
       href={href}
       className={clsx(buttonStyle.button, style.linkButton, className)}
@@ -24,6 +24,5 @@ const LinkButton: React.FC<LinkButtonProps> = ({
       {children}
     </Link>
   );
-};
 
 export default LinkButton;
