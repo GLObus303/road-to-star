@@ -18,13 +18,12 @@ const Signup: React.FC = () => {
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const requestData = {
+    const response = await registerUser({
       email,
       name: `${firstName} ${lastName}`,
       password,
-    };
+    });
 
-    const response = await registerUser(requestData);
     if (response.ok) {
       router.push("/");
     }

@@ -15,11 +15,13 @@ const EventDetailPage: React.FC = () => {
 
   useEffect(() => {
     const loadEvent = async () => {
-      if (id) {
-        const fetchedEvent = await fetchEventDetail(id);
-        setEvent(fetchedEvent);
-        setIsLoading(false);
+      if (!id) {
+        return;
       }
+
+      const fetchedEvent = await fetchEventDetail(id);
+      setEvent(fetchedEvent);
+      setIsLoading(false);
     };
 
     loadEvent();

@@ -1,7 +1,9 @@
+import { EventType } from "../model/EventType";
+
 export const fetchEvents = async () => {
   const response = await fetch(
     "https://sportujspolu-api.onrender.com/api/v1/events"
   );
 
-  return await response.json();
+  return response.json() as Promise<EventType>;
 };
