@@ -1,8 +1,9 @@
 import React from "react";
-import { Loader } from "../../components/Loader";
 import { useEffect, useState } from "react";
-import { fetchEventDetail } from "../../api/EventDetail";
 import { useRouter } from "next/router";
+
+import { Loader } from "../../components/Loader";
+import { fetchEventDetail } from "../../api/eventDetail";
 import type { EventType } from "../../model/EventType";
 import { EventDetail } from "../../components/EventDetail";
 
@@ -28,9 +29,7 @@ const EventDetailPage: React.FC = () => {
     return <Loader />;
   }
 
-  return (
-    <EventDetail name={event?.name} sport={event?.sport} id={id}></EventDetail>
-  );
+  return <EventDetail name={event?.name} sport={event?.sport} id={id} />;
 };
 
 export default EventDetailPage;

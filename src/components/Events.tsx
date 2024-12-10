@@ -1,10 +1,11 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import Link from "next/link";
+
 import type { EventType } from "../model/EventType";
-import { fetchEvents } from "../api/Events";
+import { fetchEvents } from "../api/events";
 import { Loader } from "../components/Loader";
 import style from "./Events.module.scss";
-import Link from "next/link";
 
 export const Events: React.FC = () => {
   const [events, setEvents] = useState<EventType[]>([]);
