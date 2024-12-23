@@ -1,19 +1,50 @@
 /* eslint-disable no-console */
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { useRouter } from "next/router";
 
 import Button from "./Button";
 import LinkButton from "./LinkButton";
 import CustomInput from "./CustomInput";
+import { login } from "../api/login";
+import { getCurrentUser } from "../api/getCurrentUser";
+import { UserContext } from "../context/userContext";
 import style from "./Login.module.scss";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const { setUser } = useContext(UserContext);
+  const router = useRouter();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("E-mail:", email);
-    console.log("Password:", password);
+
+    if (!email.trim() || !password.trim()) {
+      setError("Please enter both email and password.");
+
+      return;
+    }
+
+    setError("");
+
+    const loginResponse = await login(email, password);
+
+    const token = await loginResponse.json();
+
+    const currentUserResponse = await getCurrentUser(token);
+
+    if (!currentUserResponse.ok) {
+      setError("Wrong email or password");
+
+      return;
+    }
+
+    const userData = await currentUserResponse.json();
+
+    setUser(userData);
+
+    router.push("/");
   };
 
   return (
@@ -37,6 +68,7 @@ const Login: React.FC = () => {
         <LinkButton href="/" className={style.linkButtonLogin}>
           Back
         </LinkButton>
+        {error && <p>{error}</p>}
       </form>
     </div>
   );
