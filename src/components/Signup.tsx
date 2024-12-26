@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 
-import Button from "./Button";
-import LinkButton from "./LinkButton";
-import CustomInput from "./CustomInput";
+import { Button } from "./Button";
+import { LinkButton } from "./LinkButton";
+import { CustomInput } from "./CustomInput";
 import { registerUser } from "../api/signUp";
 import style from "./Signup.module.scss";
 

@@ -14,13 +14,10 @@ const loginUser = (requestData: { email: string; password: string }) =>
   });
 
 export default async function handler(
-  req: NextApiRequest,
+  { body: { email, password } }: NextApiRequest,
   res: NextApiResponse<ResponseData>
 ) {
-  const { email, password } = req.body;
-
   const loginResponse = await loginUser({ email, password });
-
   const data = await loginResponse.json();
 
   if (data?.token) {

@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 
-import LinkButton from "./LinkButton";
-import { UserContext } from "../context/userContext";
-import Button from "./Button";
+import { LinkButton } from "./LinkButton";
+import { UserContext } from "../context/UserContextProvider";
+import { Button } from "./Button";
 import style from "./Header.module.scss";
 
 export const Header: React.FC = () => {

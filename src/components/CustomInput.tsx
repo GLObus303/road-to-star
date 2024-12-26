@@ -28,5 +28,3 @@ export const CustomInput: React.FC<CustomInputProps> = ({
     />
   </div>
 );
-
-export default CustomInput;

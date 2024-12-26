@@ -13,11 +13,9 @@ const getUser = async (requestData: { token: string }) =>
   });
 
 export default async function handler(
-  req: NextApiRequest,
+  { body: { token } }: NextApiRequest,
   res: NextApiResponse<ResponseData>
 ) {
-  const { token } = req.body;
-
   const getUserResponse = await getUser({ token });
   const user = await getUserResponse.json();
 

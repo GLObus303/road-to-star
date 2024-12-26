@@ -12,17 +12,15 @@ type LinkButtonProps = {
   className?: string;
 };
 
-const LinkButton: React.FC<LinkButtonProps> = ({
+export const LinkButton: React.FC<LinkButtonProps> = ({
   href,
   children,
   className,
 }) => (
-    <Link
-      href={href}
-      className={clsx(buttonStyle.button, style.linkButton, className)}
-    >
-      {children}
-    </Link>
-  );
-
-export default LinkButton;
+  <Link
+    href={href}
+    className={clsx(buttonStyle.button, style.linkButton, className)}
+  >
+    {children}
+  </Link>
+);

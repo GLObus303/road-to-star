@@ -2,12 +2,12 @@
 import React, { useContext, useState } from "react";
 import { useRouter } from "next/router";
 
-import Button from "./Button";
-import LinkButton from "./LinkButton";
-import CustomInput from "./CustomInput";
+import { Button } from "./Button";
+import { LinkButton } from "./LinkButton";
+import { CustomInput } from "./CustomInput";
 import { login } from "../api/login";
 import { getCurrentUser } from "../api/getCurrentUser";
-import { UserContext } from "../context/userContext";
+import { UserContext } from "../context/UserContextProvider";
 import style from "./Login.module.scss";
 
 const Login: React.FC = () => {
@@ -28,9 +28,7 @@ const Login: React.FC = () => {
 
     setError("");
 
-    const loginResponse = await login(email, password);
-
-    const token = await loginResponse.json();
+    const token = await login(email, password);
 
     const currentUserResponse = await getCurrentUser(token);
 
@@ -41,7 +39,6 @@ const Login: React.FC = () => {
     }
 
     const userData = await currentUserResponse.json();
-
     setUser(userData);
 
     router.push("/");
