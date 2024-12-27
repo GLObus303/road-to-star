@@ -4,11 +4,11 @@ import { PageLayout } from "../components/PageLayout";
 import { Title } from "../components/Title";
 
 const Home = () => (
-    <PageLayout>
-      <Header />
-      <Title />
-      <Events />
-    </PageLayout>
-  );
+  <PageLayout>
+    <Header />
+    <Title />
+    <Events />
+  </PageLayout>
+);
 
 export default Home;

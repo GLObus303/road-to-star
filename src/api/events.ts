@@ -5,5 +5,5 @@ export const fetchEvents = async () => {
     "https://sportujspolu-api.onrender.com/api/v1/events"
   );
 
-  return response.json() as Promise<EventType>;
+  return response.json() as Promise<EventType[]>;
 };
